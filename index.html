@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXIA Esports | Premium Division</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Oswald:wght@500;700&family=Russo+One&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="scroll-preloader" style="position:fixed; top:0; left:0; height:3px; background:var(--color-red); z-index:9999; width:0%;"></div>
+    <div class="cursor"></div>
+    <div class="cursor2"></div>
+
+    <div class="background-elements">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav class="glass-nav">
+        <div class="logo">LUXIA<span class="text-red"> ESPORTS</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero" class="active">Главная</a></li>
+            <li><a href="#rosters">Составы</a></li>
+            <li><a href="#matches">Матчи</a></li>
+            <li><a href="#recruitment">Вступить</a></li>
+        </ul>
+        <a href="#" class="btn-glitch" data-text="МАГАЗИН">МАГАЗИН</a>
+    </nav>
+
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <p class="subtitle">PROFESSIONAL ESPORTS ORGANIZATION</p>
+            <h1 class="glitch-title" data-text="LUXIA ESPORTS">LUXIA ESPORTS</h1>
+            <p class="description">Доминируем на серверах CS2 и Standoff 2. Скорость, тактика, победа.</p>
+            
+            <div class="cta-buttons">
+                <a href="#rosters" class="btn-primary">Смотреть состав <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <div class="grid-overlay"></div>
+    </section>
+
+    <section id="rosters" class="rosters-section">
+        <div class="container">
+            <h2 class="section-header">ACTIVE <span class="text-red-glow">ROSTER</span></h2>
+
+            <div class="game-tabs glass-panel">
+                <button class="tab-btn active" data-game="cs2">
+                    <i class="fa-brands fa-steam"></i> CS2 DIVISION
+                </button>
+                <button class="tab-btn" data-game="so2">
+                    <i class="fa-solid fa-mobile"></i> STANDOFF 2
+                </button>
+            </div>
+
+            <div class="cards-grid" id="roster-container">
+                </div>
+        </div>
+    </section>
+
+    <section id="matches" class="matches-section">
+        <div class="container">
+            <h2 class="section-header">UPCOMING <span class="text-red-glow">BATTLES</span></h2>
+            
+            <div class="matches-grid">
+                <div class="match-card glass-panel">
+                    <div class="match-status finished">FINISHED</div>
+                    <div class="match-info">
+                        <div class="team home">
+                            <span class="team-name">LUXIA</span>
+                            <div class="score win">3</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <div class="score lose">0</div>
+                            <span class="team-name">XZEASE TEAM</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span><i class="fa-solid fa-trophy"></i> LaMajor Duo 2026 S1</span>
+                        <span>BO5 • MAPS</span>
+                    </div>
+                </div>
+
+                <div class="match-card glass-panel">
+                    <div class="match-status finished">FINISHED</div>
+                    <div class="match-info">
+                        <div class="team home">
+                            <span class="team-name">LUXIA</span>
+                            <div class="score win">2</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <div class="score lose">0</div>
+                            <span class="team-name">DOMED SQUAD</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span><i class="fa-solid fa-trophy"></i> LaMajor Duo 2026 S1</span>
+                        <span>BO3 • MAPS</span>
+                    </div>
+                </div>
+
+                <div class="match-card glass-panel">
+                    <div class="match-status finished">FINISHED</div>
+                    <div class="match-info">
+                        <div class="team home">
+                            <span class="team-name">LUXIA</span>
+                            <div class="score win">2</div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away">
+                            <div class="score lose">0</div>
+                            <span class="team-name">FARMIT</span>
+                        </div>
+                    </div>
+                    <div class="match-meta">
+                        <span><i class="fa-solid fa-trophy"></i> LaMajor Duo 2026 S1</span>
+                        <span>BO3 • MAPS</span>
+                    </div>
+                </div>
+
+            </div> </div>
+    </section>
+
+    <section class="achievements-section">
+        <div class="container">
+            <div class="stats-counter-wrapper glass-panel">
+                <div class="counter-item">
+                    <h3 class="text-red counter-anim" data-target="100" data-suffix="%">0%</h3>
+                    <p>WIN RATE</p>
+                </div>
+                <div class="divider"></div>
+                <div class="counter-item">
+                    <h3 class="text-red counter-anim" data-target="3" data-suffix="">0</h3>
+                    <p>OFFICIAL WINS</p>
+                </div>
+                <div class="divider"></div>
+                <div class="counter-item">
+                    <h3 class="text-red counter-anim" data-target="1" data-prefix="#">0</h3>
+                    <p>REGIONAL RANK</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners-section">
+        <div class="container">
+            <p class="partners-title">OFFICIAL PARTNERS</p>
+            <div class="partners-grid">
+                <div class="partner-logo">HWorld Music</div>
+                <div class="partner-logo">ForcePay</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recruitment" class="recruitment-section">
+        <div class="container">
+            <h2 class="section-header">JOIN <span class="text-red-glow">LUXIA</span></h2>
+            
+            <div class="form-wrapper glass-panel">
+                <form id="recruit-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nickname">Никнейм</label>
+                            <input type="text" id="nickname" class="custom-input" placeholder="Ваш ник" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fullname">Имя Фамилия</label>
+                            <input type="text" id="fullname" class="custom-input" placeholder="Иван Иванов" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">Город</label>
+                            <input type="text" id="city" class="custom-input" placeholder="Москва" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Возраст</label>
+                            <input type="number" id="age" class="custom-input" placeholder="16" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gameid">ID в игре</label>
+                            <input type="text" id="gameid" class="custom-input" placeholder="Steam ID / Standoff ID" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telegram">Ваш Telegram</label>
+                            <input type="text" id="telegram" class="custom-input" placeholder="@username" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="submit" class="btn-primary full-width" id="submit-btn">
+                            ОТПРАВИТЬ ЗАЯВКУ <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                        <p class="form-status" id="form-status"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="player-modal" class="modal-overlay">
+        <div class="modal-glass card-tilt" data-tilt data-tilt-glare data-tilt-max-glare="0.3">
+            <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div class="modal-content-wrapper">
+                <div class="modal-image">
+                    <img id="m-img" src="" alt="">
+                    <div class="img-glow"></div>
+                </div>
+                <div class="modal-data">
+                    <h2 id="m-nick">NICKNAME</h2>
+                    <h3 id="m-role" class="text-red">Role</h3>
+                    
+                    <div class="stats-box glass-panel">
+                        <div class="stat">
+                            <span class="label">K/D RATIO</span>
+                            <span class="value text-red" id="m-kd">0.0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">HEADSHOT %</span>
+                            <span class="value" id="m-hs">0%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="label">RATING 2.0</span>
+                            <span class="value">>1.5</span>
+                        </div>
+                    </div>
+                    <p class="bio">Официальный игрок состава LUXIA Esports. Демонстрирует высокий уровень индивидуального мастерства и командного взаимодействия.</p>
+                    <button class="btn-primary full-width">Профиль Steam/ID</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="glass-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>LUXIA<span class="text-red"> ESPORTS</span></h2>
+                <p>Professional Esports Organization established in 2024.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="social-btn"><i class="fa-brands fa-discord"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-btn"><i class="fa-brands fa-vk"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 LUXIA ESPORTS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
