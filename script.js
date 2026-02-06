@@ -25,21 +25,24 @@ const mKd = document.getElementById('m-kd');
 const mHs = document.getElementById('m-hs');
 
 // --- Кастомный Курсор ---
+// Проверка: запускаем курсор только если есть мышь (не тачскрин)
 const cursor = document.querySelector('.cursor');
 const cursor2 = document.querySelector('.cursor2');
 
-document.addEventListener('mousemove', function(e){
-    if(cursor && cursor2) {
-        cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
-    }
-});
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.addEventListener('mousemove', function(e){
+        if(cursor && cursor2) {
+            cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX + "px; top: " + e.clientY + "px;";
+        }
+    });
 
-// Добавляем эффекты при наведении на интерактивные элементы
-const interactiveElements = document.querySelectorAll('a, button, .player-card-wrapper, input');
-interactiveElements.forEach(el => {
-    el.addEventListener('mouseover', () => cursor2.classList.add('hovered'));
-    el.addEventListener('mouseleave', () => cursor2.classList.remove('hovered'));
-});
+    // Добавляем эффекты при наведении
+    const interactiveElements = document.querySelectorAll('a, button, .player-card-wrapper, input');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseover', () => cursor2.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor2.classList.remove('hovered'));
+    });
+}
 
 
 // --- Функции Рендеринга ---
@@ -50,15 +53,18 @@ function renderRoster(gameKey) {
     const players = playersData[gameKey];
 
     players.forEach(player => {
-        // Создаем обертку для 3D эффекта
+        // Создаем обертку
         const wrapper = document.createElement('div');
         wrapper.classList.add('player-card-wrapper');
-        // Добавляем атрибуты для VanillaTilt
-        wrapper.setAttribute('data-tilt', '');
-        wrapper.setAttribute('data-tilt-scale', '1.05');
-        wrapper.setAttribute('data-tilt-max', '15');
-        wrapper.setAttribute('data-tilt-glare', '');
-        wrapper.setAttribute('data-tilt-max-glare', '0.4');
+        
+        // Tilt эффект только для десктопов
+        if(window.innerWidth > 968) {
+            wrapper.setAttribute('data-tilt', '');
+            wrapper.setAttribute('data-tilt-scale', '1.05');
+            wrapper.setAttribute('data-tilt-max', '15');
+            wrapper.setAttribute('data-tilt-glare', '');
+            wrapper.setAttribute('data-tilt-max-glare', '0.4');
+        }
 
         wrapper.innerHTML = `
             <div class="player-card glass-panel">
@@ -74,15 +80,18 @@ function renderRoster(gameKey) {
 
         // Клик для открытия модалки
         wrapper.addEventListener('click', () => openModal(player));
-        // Ховер для курсора
-        wrapper.addEventListener('mouseover', () => cursor2.classList.add('hovered'));
-        wrapper.addEventListener('mouseleave', () => cursor2.classList.remove('hovered'));
+        
+        // Ховер для курсора (если поддерживается)
+        if (window.matchMedia("(hover: hover)").matches) {
+            wrapper.addEventListener('mouseover', () => cursor2.classList.add('hovered'));
+            wrapper.addEventListener('mouseleave', () => cursor2.classList.remove('hovered'));
+        }
         
         rosterContainer.appendChild(wrapper);
     });
 
-    // ВАЖНО: Инициализируем VanillaTilt на новых элементах
-    if(typeof VanillaTilt !== 'undefined') {
+    // Инициализируем VanillaTilt только если библиотека загружена и ширина позволяет
+    if(typeof VanillaTilt !== 'undefined' && window.innerWidth > 968) {
         VanillaTilt.init(document.querySelectorAll(".player-card-wrapper"));
     }
 }
@@ -127,7 +136,7 @@ tabs.forEach(tab => {
 // --- Инициализация при загрузке ---
 document.addEventListener('DOMContentLoaded', () => {
     renderRoster('cs2'); // Загружаем CS2 по умолчанию
-    if(document.querySelector(".modal-glass") && typeof VanillaTilt !== 'undefined') {
+    if(document.querySelector(".modal-glass") && typeof VanillaTilt !== 'undefined' && window.innerWidth > 968) {
         VanillaTilt.init(document.querySelector(".modal-glass"));
     }
 });
@@ -174,7 +183,7 @@ window.onscroll = function() {
     });
 };
 
-// --- ОТПРАВКА ФОРМЫ В TELEGRAM (ИСПРАВЛЕНО) ---
+// --- ОТПРАВКА ФОРМЫ В TELEGRAM ---
 
 const form = document.getElementById('recruit-form');
 const submitBtn = document.getElementById('submit-btn');
@@ -182,7 +191,7 @@ const statusText = document.getElementById('form-status');
 
 // !!! ВАШИ ДАННЫЕ !!!
 const BOT_TOKEN = '8530783323:AAHCnr_mI3iIVV7EWhjK6KGvQej7FdApzzc'; 
-const CHAT_ID = '@luxiaanket'; // Канал для отправки
+const CHAT_ID = '@luxiaanket'; 
 
 if(form) {
     form.addEventListener('submit', function(e) {
